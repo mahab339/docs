@@ -1,7 +1,7 @@
 ---
 title: How to use the ML.NET Automated ML (AutoML) API
 description: The ML.NET Automated ML (AutoML) API automates the model building process and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning tasks.
-ms.date: 11/10/2022
+ms.date: 12/06/2022
 ms.custom: mvc,how-to
 ms.topic: how-to
 ---
@@ -47,7 +47,7 @@ CMT|1|1|637|1.4|CRD|8.5
 
 ### Load your data
 
-Start by inizializing your <xref:Microsoft.ML.MLContext>. `MLContext` is a starting point for all ML.NET operations. Initializing mlContext creates a new ML.NET environment that can be shared across the model creation workflow objects. It's similar, conceptually, to `DBContext` in Entity Framework.
+Start by initializing your <xref:Microsoft.ML.MLContext>. `MLContext` is a starting point for all ML.NET operations. Initializing mlContext creates a new ML.NET environment that can be shared across the model creation workflow objects. It's similar, conceptually, to `DBContext` in Entity Framework.
 
 Then, to load your data, use the <xref:Microsoft.ML.AutoML.AutoCatalog.InferColumns%2A> method.
 
@@ -352,7 +352,7 @@ In order to use AutoML with the text classification trainer you'll have to:
 1. Create a sweepable estimator and add it to your pipeline.
 
     ```csharp
-    // Initialize serach space
+    // Initialize search space
     var tcSearchSpace = new SearchSpace<TCOption>();
     
     // Create factory for Text Classification trainer
@@ -685,3 +685,41 @@ Checkpoints provide a way for you to save intermediary outputs from the training
 var checkpointPath = Path.Join(Directory.GetCurrentDirectory(), "automl");
 experiment.SetCheckpoint(checkpointPath);
 ```
+
+## Determine feature importance
+
+As machine learning is introduced into more aspects of everyday life such as healthcare, it's of utmost importance to understand why a machine learning model makes the decisions it does. Permutation Feature Importance (PFI) is a technique used to explain classification, ranking, and regression models. At a high level, the way it works is by randomly shuffling data one feature at a time for the entire dataset and calculating how much the performance metric of interest decreases. The larger the change, the more important that feature is. For more information on PFI, see [interpret model predictions using Permutation Feature Importance](explain-machine-learning-model-permutation-feature-importance-ml-net.md).
+
+> [!NOTE]
+> Calculating PFI can be a time consuming operation. How much time it takes to calculate is proportional to the number of feature columns you have. The more features, the longer PFI will take to run.
+
+To determine feature importance using AutoML:
+
+1. Get the best model.
+
+    ```csharp
+    var bestModel = expResult.Model;
+    ```
+
+1. Apply the model to your dataset.
+
+    ```csharp
+    var transformedData = bestModel.Transform(trainValidationData.TrainSet);
+    ```
+
+1. Calculate feature importance using <xref:Microsoft.ML.PermutationFeatureImportanceExtensions.PermutationFeatureImportance%2A>
+
+    In this case, the task is regression but the same concept applies to other tasks like ranking and classification.
+
+    ```csharp
+    var pfiResults = 
+        mlContext.Regression.PermutationFeatureImportance(bestModel, transformedData, permutationCount:3);
+    ```
+
+1. Order feature importance by changes to evaluation metrics.
+
+    ```csharp
+    var featureImportance = 
+        pfi.Select(x => Tuple.Create(x.Key, x.Value.Regression.RSquared))
+            .OrderByDescending(x => x.Item2)    
+    ```
