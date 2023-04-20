@@ -22,7 +22,19 @@ items:
       - name: Overview
         href: ../core/install/linux.md
       - name: Ubuntu
-        href: ../core/install/linux-ubuntu.md
+        items:
+        - name: Overview
+          href: ../core/install/linux-ubuntu.md
+        - name: "22.10"
+          href: ../core/install/linux-ubuntu-2210.md
+        - name: "22.04"
+          href: ../core/install/linux-ubuntu-2204.md
+        - name: "20.04"
+          href: ../core/install/linux-ubuntu-2004.md
+        - name: "18.04"
+          href: ../core/install/linux-ubuntu-1804.md
+        - name: "16.04"
+          href: ../core/install/linux-ubuntu-1604.md
       - name: Alpine
         href: ../core/install/linux-alpine.md
       - name: CentOS
@@ -147,6 +159,12 @@ items:
       href: ../core/tutorials/index.md
 - name: What's new in .NET
   items:
+  - name: .NET 8
+    items:
+    - name: What's new
+      href: ../core/whats-new/dotnet-8.md
+    - name: Breaking changes
+      href: ../core/compatibility/8.0.md?toc=/dotnet/fundamentals/toc.json&bc=/dotnet/breadcrumb/toc.json
   - name: .NET 7
     items:
     - name: What's new
@@ -205,8 +223,6 @@ items:
       href: ../standard/base-types/conversion-tables.md
     - name: Choose between anonymous and tuple types
       href: ../standard/base-types/choosing-between-anonymous-and-tuple.md
-    - name: Framework libraries
-      href: ../standard/framework-libraries.md
     - name: Class library overview
       href: ../standard/class-library-overview.md
   - name: Generic types
@@ -539,6 +555,8 @@ items:
           href: ../standard/serialization/system-text-json/required-properties.md
         - name: Allow invalid JSON
           href: ../standard/serialization/system-text-json/invalid-json.md
+        - name: Handle missing members
+          href: ../standard/serialization/system-text-json/missing-members.md
         - name: Handle overflow JSON, use JsonElement or JsonNode
           href: ../standard/serialization/system-text-json/handle-overflow.md
         - name: Preserve references, handle circular references
@@ -565,31 +583,6 @@ items:
           href: ../standard/serialization/system-text-json/converters-how-to.md
         - name: Customize contracts
           href: ../standard/serialization/system-text-json/custom-contracts.md
-    - name: Binary serialization
-      items:
-      - name: Overview
-        href: ../standard/serialization/binary-serialization.md
-        displayName: binary serialization
-      - name: BinaryFormatter security guide
-        href: ../standard/serialization/binaryformatter-security-guide.md
-      - name: BinaryFormatter event source
-        href: ../standard/serialization/binaryformatter-event-source.md
-      - name: Serialization concepts
-        href: ../standard/serialization/serialization-concepts.md
-      - name: Basic serialization
-        href: ../standard/serialization/basic-serialization.md
-      - name: Selective serialization
-        href: ../standard/serialization/selective-serialization.md
-      - name: Custom serialization
-        href: ../standard/serialization/custom-serialization.md
-      - name: Steps in the serialization process
-        href: ../standard/serialization/steps-in-the-serialization-process.md
-      - name: Version-tolerant serialization
-        href: ../standard/serialization/version-tolerant-serialization.md
-      - name: Serialization guidelines
-        href: ../standard/serialization/serialization-guidelines.md
-      - name: "How to: Chunk serialized data"
-        href: ../standard/serialization/how-to-chunk-serialized-data.md
     - name: XML and SOAP serialization
       items:
       - name: Overview
@@ -626,6 +619,8 @@ items:
           href: ../standard/serialization/how-to-serialize-an-object-as-a-soap-encoded-xml-stream.md
         - name: Override encoded SOAP XML serialization
           href: ../standard/serialization/how-to-override-encoded-soap-xml-serialization.md
+        - name: Chunk serialized data
+          href: ../standard/serialization/how-to-chunk-serialized-data.md
       - name: XML serialization elements
         items:
         - name: system.xml.serialization
@@ -644,6 +639,12 @@ items:
           href: ../standard/serialization/xml-serializer-generator-tool-sgen-exe.md
         - name: XML Schema Definition tool (Xsd.exe)
           href: ../standard/serialization/xml-schema-definition-tool-xsd-exe.md
+    - name: Binary serialization
+      items:
+      - name: BinaryFormatter security guide
+        href: ../standard/serialization/binaryformatter-security-guide.md
+      - name: BinaryFormatter event source
+        href: ../standard/serialization/binaryformatter-event-source.md
   - name: System.CommandLine
     items:
     - name: Overview
@@ -763,88 +764,119 @@ items:
       displayName: custom configuration,custom config,custom configuration provider,custom config provider
     - name: Options pattern
       href: ../core/extensions/options.md
+      displayName: options pattern,options,configuration options,config options
     - name: Options pattern guidance for library authors
       href: ../core/extensions/options-library-authors.md
+      displayName: options pattern guidance,options guidance,configuration options guidance,config options guidance
   - name: Logging
     items:
     - name: Overview
       href: ../core/extensions/logging.md
+      displayName: logging,logger,log,loggers
     - name: Logging providers
       href: ../core/extensions/logging-providers.md
+      displayName: logging providers,log providers
     - name: Compile-time logging source generation
       href: ../core/extensions/logger-message-generator.md
       displayName: LoggerMessage,LoggerMessageAttribute,source generator,compile-time generation
     - name: Implement a custom logging provider
       href: ../core/extensions/custom-logging-provider.md
+      displayName: custom logging,custom log,custom logging provider,custom log provider
     - name: High-performance logging
       href: ../core/extensions/high-performance-logging.md
+      displayName: high-performance logging,high-performance log,high-performance logging provider,high-performance log provider
     - name: Console log formatting
       href: ../core/extensions/console-log-formatter.md
+      displayName: console log formatting,console log formatter,console log formatting provider,console log formatter provider
   - name: HostBuilder (generic host)
     href: ../core/extensions/generic-host.md
   - name: Networking
     items:
     - name: Network programming
       href: networking/overview.md
+      displayName: networking,sockets,socket,socket programming,socket client,socket server,socket client server,socket client-server,socket client-server,socket client/server,socket client/server,socket client-serve
     - name: Network availability
       href: networking/network-info.md
+      displayName: network availability,network info,network information,network availability info,network availability information,network info availability,network information availability,network availability info
     - name: IPv6 overview
       href: networking/ipv6-overview.md
+      displayName: ipv6,ipv
     - name: Telemetry
       href: networking/networking-telemetry.md
+      displayName: networking telemetry
     - name: HTTP
       items:
       - name: HTTP support
         href: networking/http/http-overview.md
+        displayName: networking,http,web services,httpclient
       - name: HTTP client guidelines
-        displayName: networking, httpclient
         href: networking/http/httpclient-guidelines.md
+        displayName: networking, httpclient
       - name: Make HTTP requests
-        displayName: networking,http,web services,client
         href: networking/http/httpclient.md
+        displayName: networking,http,web services,client
       - name: IHttpClientFactory
-        displayName: networking,httpclient,http,dependency injection,client,factory
         href: ../core/extensions/httpclient-factory.md
+        displayName: networking,httpclient,http,dependency injection,client,factory,named client,named httpclient,typed client,typed httpclient
       - name: HTTP/3 with .NET
         href: ../core/extensions/httpclient-http3.md
+        displayName: networking,http,http3,http/3,http3 with .net,http/3 with .net
       - name: Rate limit an HTTP handler
         href: ../core/extensions/http-ratelimiter.md
+        displayName: networking,http,rate limit,rate limiting,rate limit http,rate limiting http,rate limit http handler,rate limiting http handler
     - name: Sockets
       items:
       - name: Sockets support
         href: networking/sockets/sockets-overview.md
+        displayName: networking,sockets,socket,socket programming,socket client,socket server
       - name: Use Sockets to send and receive data over TCP
         href: networking/sockets/socket-services.md
+        displayName: networking,sockets,socket,socket programming,socket client,socket server
       - name: Use TcpClient and TcpListener
         href: networking/sockets/tcp-classes.md
+        displayName: networking,tcp,tcp listener,tcp client
     - name: WebSockets
       items:
       - name: WebSockets support
         href: networking/websockets.md
+        displayName: websockets,websocket,websocket programming,websocket client,websocket server
     - name: Security
       items:
         - name: TLS/SSL best practices
           href: ../core/extensions/sslstream-best-practices.md
+          displayName: tls,ssl,sslstream,sslstream best practices,tls best practices,ssl best practices
         - name: Troubleshoot SslStream authentication issues
           href: ../core/extensions/sslstream-troubleshooting.md
+          displayName: tls,ssl,sslstream,sslstream troubleshooting,tls troubleshooting,ssl troubleshooting
         - name: Migrate from .NET Framework to .NET
           href: ../core/extensions/sslstream-migration-from-framework.md
+    - name: QUIC
+      items:
+      - name: QUIC support
+        href: networking/quic/quic-overview.md
   - name: File globbing
     href: ../core/extensions/file-globbing.md
+    displayName: file globbing,globbing,globbing patterns,globbing pattern,globbing
   - name: Primitives library
     href: ../core/extensions/primitives.md
+    displayName: primitives,primitive types,ichangetoken,change notifications,string tokenizers,StringSegment,StringTokenizer,StringValues
   - name: Globalization and localization
     items:
     - name: Overview
       href: ../core/extensions/globalization-and-localization.md
+      displayName: globalization,localization,culture,localization and globalization
     - name: Globalization
       href: ../core/extensions/globalization.md
+      displayName: globalization,culture
     - name: Globalization and ICU
       href: ../core/extensions/globalization-icu.md
+      displayName: globalization,icu,culture
     - name: Localizability review
       href: ../core/extensions/localizability-review.md
+      displayName: localizability,localization,localization review,localizability review
     - name: Localization
       href: ../core/extensions/localization.md
+      displayName: localization,localization review,localizability review
     - name: Culture-insensitive string operations
       items:
       - name: Overview
@@ -886,6 +918,9 @@ items:
       href: ../core/extensions/scoped-service.md
     - name: Create a Windows Service using BackgroundService
       href: ../core/extensions/windows-service.md
+    - name: Create a Windows Service installer
+      href: ../core/extensions/windows-service-with-installer.md
+      displayName: msi,windows service installer,setup.exe
     - name: Implement the IHostedService interface
       href: ../core/extensions/timer-service.md
     - name: Deploy a Worker Service to Azure

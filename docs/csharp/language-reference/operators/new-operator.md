@@ -52,7 +52,7 @@ To create an instance of an [anonymous type](../../fundamentals/types/anonymous-
 
 You don't have to destroy earlier created type instances. Instances of both reference and value types are destroyed automatically. Instances of value types are destroyed as soon as the context that contains them is destroyed. Instances of reference types are destroyed by the [garbage collector](../../../standard/garbage-collection/index.md) at some unspecified time after the last reference to them is removed.
 
-For type instances that contain unmanaged resources, for example, a file handle, it's recommended to employ deterministic clean-up to ensure that the resources they contain are released as soon as possible. For more information, see the <xref:System.IDisposable?displayProperty=nameWithType> API reference and the [using statement](../keywords/using-statement.md) article.
+For type instances that contain unmanaged resources, for example, a file handle, it's recommended to employ deterministic clean-up to ensure that the resources they contain are released as soon as possible. For more information, see the <xref:System.IDisposable?displayProperty=nameWithType> API reference and the [using statement](../statements/using.md) article.
 
 ## Operator overloadability
 
@@ -60,7 +60,7 @@ A user-defined type can't overload the `new` operator.
 
 ## C# language specification
 
-For more information, see [The new operator](~/_csharpstandard/standard/expressions.md#11715-the-new-operator) section of the [C# language specification](~/_csharpstandard/standard/README.md).
+For more information, see [The new operator](~/_csharpstandard/standard/expressions.md#12816-the-new-operator) section of the [C# language specification](~/_csharpstandard/standard/README.md).
 
 For more information about a target-typed `new` expression, see the [feature proposal note](~/_csharplang/proposals/csharp-9.0/target-typed-new.md).
 

@@ -19,12 +19,14 @@ In this topic, you will use .NET to display text on an LCD character display usi
 
 ## Prerequisites
 
-- [!INCLUDE [prereq-rpi](../includes/prereq-rpi.md)]
+- [!INCLUDE [prereq-sbc](../includes/prereq-sbc.md)]
 - [20x4 LCD Character Display with I<sup>2</sup>C interface](https://www.bing.com/images/search?q=20x4+lcd+display+with+i2c)
 - Jumper wires
 - Breadboard (optional/recommended)
 - Raspberry Pi GPIO breakout board (optional/recommended)
 - [!INCLUDE [tutorial-prereq-dotnet](../includes/tutorial-prereq-dotnet.md)]
+
+[!INCLUDE [rpi-note](../includes/rpi-note.md)]
 
 > [!NOTE]
 > There are many manufacturers of LCD character displays. Most designs are identical, and the manufacturer shouldn't make any difference to the functionality. For reference, this tutorial was developed with the [SunFounder LCD2004](https://www.sunfounder.com/lcd2004-module.html).
@@ -67,7 +69,7 @@ Complete the following steps in your preferred development environment:
 
     In the preceding code:
 
-    - A [using declaration](../../csharp/language-reference/keywords/using-statement.md) creates an instance of `I2cDevice` by calling `I2cDevice.Create` and passing in a new `I2cConnectionSettings` with the `busId` and `deviceAddress` parameters. This `I2cDevice` represents the I<sup>2</sup>C bus. The `using` declaration ensures the object is disposed and hardware resources are released properly.
+    - A [using declaration](../../csharp/language-reference/statements/using.md) creates an instance of `I2cDevice` by calling `I2cDevice.Create` and passing in a new `I2cConnectionSettings` with the `busId` and `deviceAddress` parameters. This `I2cDevice` represents the I<sup>2</sup>C bus. The `using` declaration ensures the object is disposed and hardware resources are released properly.
 
         > [!WARNING]
         > The device address for the GPIO expander depends on the chip used by the manufacturer. GPIO expanders equipped with a PCF8574 use the address `0x27`, while those using PCF8574A chips use `0x3F`. Consult your LCD's documentation.

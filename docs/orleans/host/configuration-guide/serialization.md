@@ -36,6 +36,18 @@ By default, Orleans will serialize your type by encoding its full name. You can 
 
 Members defined in a record's primary constructor have implicit ids by default. In other words, Orleans supports serializing `record` types. This means that you cannot change the parameter order for an already deployed type, since that breaks compatibility with previous versions of your application (in the case of a rolling upgrade) and with serialized instances of that type in storage and streams. Members defined in the body of a record type don't share identities with the primary constructor parameters.
 
+```csharp
+[GenerateSerializer]
+public record MyRecord(string A, string B)
+{
+    // ID 0 won't clash with A in primary constructor as they don't share identities
+    [Id(0)]
+    public string C { get; init; }
+}
+```
+
+If you don't want the primary constructor parameters to be automatically included as Serializable fields, you can use `[GenerateSerializer(IncludePrimaryConstructorParameters = false)]`.
+
 ## Surrogates for serializing foreign types
 
 Sometimes you may need to pass types between grains which you don't have full control over. In these cases, it may be impractical to convert to and from some custom-defined type in your application code manually. Orleans offers a solution for these situations in the form of surrogate types. Surrogates are serialized in place of their target type and have functionality to convert to and from the target type. Consider the following example of a foreign type and a corresponding surrogate and converter:
@@ -177,41 +189,6 @@ public sealed class DerivedFromMyForeignLibraryType : MyForeignLibraryType
 }
 ```
 
-### Immutability enhancements
-
-Orleans opts for safety by default. To ensure that values sent between grains are not modified after the call site or during transmission, these values are copied immediately when making a grain call or returning a response from a grain.
-In cases where a developer knows that a type will not be modified, Orleans can be instructed to skip this copy process.
-In previous version of Orleans, there were two ways to do this:
-
-1. Wrapping your value in <xref:Orleans.Concurrency.Immutable%601>, using `new Immutable<T>(myValue)`. This requires that your grain interface method parameters and return types are `Immutable<T>`, where `T` is the underlying type, so it can be quite invasive and it is extra ceremony.
-1. Marking your type with the <xref:Orleans.ImmutableAttribute>. This causes Orleans' code generator to emit code that avoids copying any object of that type.
-
-Sometimes, you may not have control over the object, for example, it may be a `List<int>` that you are sending between grains. Other times, perhaps parts of your objects are immutable and other parts are not. For these cases, Orleans 7.0 introduces additional options.
-
-1. Method signatures can include <xref:Orleans.ImmutableAttribute> on a per-parameter basis:
-
-    ```csharp
-    public interface ISummerGrain : IGrain
-    {
-      // `values` will not be copied.
-      ValueTask<int> Sum([Immutable] List<int> values);
-    }
-    ```
-
-1. Individual properties and fields can be marked as <xref:Orleans.ImmutableAttribute> to prevent copies being made when instances of the containing type are copied.
-
-    ```csharp
-    [GenerateSerializer]
-    public sealed class MyType
-    {
-        [Id(0), Immutable]
-        public List<int> ReferenceData { get; set; }
-        
-        [Id(1)]
-        public List<int> RunningTotals { get; set; }
-    }
-    ```
-
 ## Grain storage serializers
 
 Orleans includes a provider-backed persistence model for grains, accessed via the <xref:Orleans.Grain%601.State?displayName=nameWithType> property or by injecting one or more <xref:Orleans.Runtime.IPersistentState%601> values into your grain. Before Orleans 7.0, each provider had a different mechanism for configuring serialization. In Orleans 7.0, there is now a general-purpose grain state serializer interface, <xref:Orleans.Storage.IGrainStorageSerializer>, which offers a consistent way to customize state serialization for each provider. Supported storage providers implement a pattern that involves setting the <xref:Orleans.Storage.IStorageProviderSerializerOptions.GrainStorageSerializer%2A?displayProperty=nameWithType> property on the provider's options class, for example:
@@ -312,7 +289,7 @@ The <xref:Orleans.Serialization.BinaryFormatterSerializer> is the default fallba
 
 ## Exception serialization
 
-Exceptions are serialized using the [fallback serializer](serialization.md#fallback-serialization). Using the default configuration, `BinaryFormatter` is the fallback serializer and so the [ISerializable pattern](../../../standard/serialization/custom-serialization.md) must be followed in order to ensure correct serialization of all properties in an exception type.
+Exceptions are serialized using the [fallback serializer](serialization.md#fallback-serialization). Using the default configuration, `BinaryFormatter` is the fallback serializer and so the [ISerializable pattern](/previous-versions/dotnet/fundamentals/serialization/binary/custom-serialization) must be followed in order to ensure correct serialization of all properties in an exception type.
 
 Here is an example of an exception type with correctly implemented serialization:
 

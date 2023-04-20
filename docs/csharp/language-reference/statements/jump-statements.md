@@ -17,7 +17,7 @@ helpviewer_keywords:
   - "goto statement [C#]"
   - "goto keyword [C#]"
 ---
-# Jump statements - `break`, `continue`, `return` and `goto`
+# Jump statements - `break`, `continue`, `return`, and `goto`
 
 Four C# statements unconditionally transfer control. The `break` [statement](#the-break-statement), terminates the closest enclosing [iteration statement](iteration-statements.md) or `switch` [statement](selection-statements.md#the-switch-statement). The `continue` [statement](#the-continue-statement) starts a new iteration of the closest enclosing [iteration statement](iteration-statements.md). The `return` [statement](#the-return-statement): terminates execution of the function in which it appears and returns control to the caller. The `ref` modifier on a `return` statement indicates the returned expression is returned *by reference*, not *by value*. The `goto` [statement](#the-goto-statement): transfers control to a statement that is marked by a label.
 
@@ -123,10 +123,10 @@ If a label with the given name doesn't exist in the current function member, or 
 
 For more information, see the following sections of the [C# language specification](~/_csharpstandard/standard/README.md):
 
-- [The `break` statement](~/_csharpstandard/standard/statements.md#12102-the-break-statement)
-- [The `continue` statement](~/_csharpstandard/standard/statements.md#12103-the-continue-statement)
-- [The `return` statement](~/_csharpstandard/standard/statements.md#12105-the-return-statement)
-- [The `goto` statement](~/_csharpstandard/standard/statements.md#12104-the-goto-statement)
+- [The `break` statement](~/_csharpstandard/standard/statements.md#13102-the-break-statement)
+- [The `continue` statement](~/_csharpstandard/standard/statements.md#13103-the-continue-statement)
+- [The `return` statement](~/_csharpstandard/standard/statements.md#13105-the-return-statement)
+- [The `goto` statement](~/_csharpstandard/standard/statements.md#13104-the-goto-statement)
 
 ## See also
 

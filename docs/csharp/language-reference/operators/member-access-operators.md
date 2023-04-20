@@ -35,7 +35,7 @@ helpviewer_keywords:
 ---
 # Member access operators and expressions - the dot, indexer, and invocation operators.
 
-You use several operators and expressions to access a type member. These operators include member access (`.`), array element or indexer access (`[]`), index-from-end (`^`), range (`..`), null-conditional operators (`?.` and `?[]`), and method invocation (`()`). These include the *null-conditional* member access (`.?`), and indexer access (`?[]`) operators.
+You use several operators and expressions to access a type member. These operators include member access (`.`), array element or indexer access (`[]`), index-from-end (`^`), range (`..`), null-conditional operators (`?.` and `?[]`), and method invocation (`()`). These include the *null-conditional* member access (`?.`), and indexer access (`?[]`) operators.
 
 - [`.` (member access)](#member-access-expression-): to access a member of a namespace or a type
 - [`[]` (array element or indexer access)](#indexer-operator-): to access an array element or a type indexer
@@ -94,7 +94,7 @@ For more information about indexers, see [Indexers](../../programming-guide/inde
 
 For information about pointer element access, see the [Pointer element access operator []](pointer-related-operators.md#pointer-element-access-operator-) section of the [Pointer related operators](pointer-related-operators.md) article.
 
-You also use square brackets to specify [attributes](../../programming-guide/concepts/attributes/index.md):
+You also use square brackets to specify [attributes](/dotnet/csharp/advanced-topics/reflection-and-attributes):
 
 ```csharp
 [System.Diagnostics.Conditional("DEBUG")]
@@ -236,10 +236,10 @@ The `.`, `()`, `^`, and `..` operators can't be overloaded. The `[]` operator is
 
 For more information, see the following sections of the [C# language specification](~/_csharpstandard/standard/README.md):
 
-- [Member access](~/_csharpstandard/standard/expressions.md#1176-member-access)
-- [Element access](~/_csharpstandard/standard/expressions.md#11710-element-access)
-- [Null-conditional member access](~/_csharpstandard/standard/expressions.md#1177-null-conditional-member-access)
-- [Invocation expressions](~/_csharpstandard/standard/expressions.md#1178-invocation-expressions)
+- [Member access](~/_csharpstandard/standard/expressions.md#1287-member-access)
+- [Element access](~/_csharpstandard/standard/expressions.md#12811-element-access)
+- [Null-conditional member access](~/_csharpstandard/standard/expressions.md#1288-null-conditional-member-access)
+- [Invocation expressions](~/_csharpstandard/standard/expressions.md#1289-invocation-expressions)
 
 For more information about indices and ranges, see the [feature proposal note](~/_csharplang/proposals/csharp-8.0/ranges.md).
 

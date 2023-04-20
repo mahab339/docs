@@ -1,21 +1,26 @@
 {
     "build": {
-      "markdownEngineName": "markdig",
-      "markdownEngineProperties": {
-        "markdigExtensions": [
-            "abbreviations",
-            "definitionlists",
-            "tasklists",
-            "footnotes",
-            "diagrams"
-          ]
+        "markdownEngineName": "markdig",
+        "markdownEngineProperties": {
+            "markdigExtensions": [
+                "abbreviations",
+                "definitionlists",
+                "tasklists",
+                "footnotes",
+                "diagrams"
+            ]
         },
         "content": [
             {
-                "files": ["api/**/*.md"]
+                "files": [
+                    "api/**/*.md"
+                ]
             },
             {
-                "files": ["**/*.md", "**/*.yml"],
+                "files": [
+                    "**/*.md",
+                    "**/*.yml"
+                ],
                 "src": "docs",
                 "dest": ".",
                 "exclude": [
@@ -27,25 +32,31 @@
                 ]
             },
             {
-                "files": ["**/*.md"],
+                "files": [
+                    "**/*.md"
+                ],
                 "src": "_csharpstandard/standard",
                 "dest": "csharp/language-reference/language-specification"
             },
             {
-                "files": ["**/*.md"],
+                "files": [
+                    "**/*.md"
+                ],
                 "src": "redirections/proposals",
                 "dest": "csharp/language-reference/proposals"
             },
             {
                 "files": [
                     "csharp-7.0/*.md",
-                    "csharp-7.1/*.md",
                     "csharp-7.2/*.md",
                     "csharp-7.3/*.md",
                     "csharp-8.0/*.md",
                     "csharp-9.0/*.md",
                     "csharp-10.0/*.md",
-                    "csharp-11.0/*.md"
+                    "csharp-11.0/*.md",
+                    "primary-constructors.md",
+                    "using-alias-types.md",
+                    "lambda-method-group-defaults.md"
                 ],
                 "src": "_csharplang/proposals",
                 "dest": "csharp/language-reference/proposals",
@@ -62,8 +73,9 @@
                     "csharp-7.0/throw-expression.md",
                     "csharp-7.0/tuples.md",
                     "csharp-7.0/value-task.md",
-                    "csharp-7.1/async-main.md",
-                    "csharp-7.1/target-typed-default.md",
+                    "csharp-7.0/out-var.md",
+                    "csharp-7.0/pattern-matching.md",
+
                     "csharp-7.2/leading-separator.md",
                     "csharp-7.2/readonly-struct.md",
                     "csharp-7.2/ref-struct-and-span.md",
@@ -76,6 +88,10 @@
                     "csharp-7.3/improved-overload-candidates.md",
                     "csharp-7.3/ref-loops.md",
                     "csharp-7.3/blittable.md",
+                    "csharp-7.3/indexing-movable-fixed-fields.md",
+                    "csharp-7.3/pattern-based-fixed.md",
+                    "csharp-7.3/expression-variables-in-initializers.md",
+                    "csharp-7.3/tuple-equality.md",
                     "csharp-8.0/alternative-interpolated-verbatim.md",
                     "csharp-8.0/async-using.md",
                     "csharp-8.0/constraints-in-overrides.md",
@@ -88,17 +104,24 @@
                 ]
             },
             {
-                "files": ["Compiler Breaking Changes - DotNet 7.md"],
+                "files": [
+                    "Compiler Breaking Changes - DotNet 7.md"
+                ],
                 "src": "_roslyn/docs/compilers/CSharp",
                 "dest": "csharp/whats-new/breaking-changes",
-                "exclude": [
-                ]
+                "exclude": []
             },
             {
-                "files": ["**/*.md"],
+                "files": [
+                    "**/*.md"
+                ],
                 "src": "_vblang/spec",
                 "dest": "visual-basic/reference/language-specification",
-                "exclude": ["README.md", "LICENSE.md", "**/includes/**"]
+                "exclude": [
+                    "README.md",
+                    "LICENSE.md",
+                    "**/includes/**"
+                ]
             }
         ],
         "resource": [
@@ -126,7 +149,6 @@
                 "exclude": [
                     "_csharplang/proposals/csharp-7.0/local-functions.md",
                     "_csharplang/proposals/csharp-7.0/throw-expression.md",
-                    "_csharplang/proposals/csharp-7.0/throw-expression.md",
                     "_csharplang/proposals/csharp-7.1/target-typed-default.md",
                     "_csharplang/proposals/csharp-7.2/readonly-struct.md",
                     "_csharplang/proposals/csharp-7.2/non-trailing-named-arguments.md"
@@ -137,8 +159,12 @@
             "apiPlatform": "dotnet",
             "author": "dotnet-bot",
             "breadcrumb_path": "/dotnet/breadcrumb/toc.json",
-            "dev_langs": ["csharp"],
-            "featureFlags": ["enable_uhf_ppe"],
+            "dev_langs": [
+                "csharp"
+            ],
+            "featureFlags": [
+                "enable_uhf_ppe"
+            ],
             "feedback_system": "GitHub",
             "feedback_github_repo": "dotnet/docs",
             "feedback_product_url": "https://aka.ms/feedback/report?space=61",
@@ -147,10 +173,14 @@
             "ms.prod": "dotnet",
             "ms.topic": "conceptual",
             "recommendations": true,
-            "searchScope": [".NET"],
+            "searchScope": [
+                ".NET"
+            ],
             "show_latex": true,
             "uhfHeaderId": "MSDocsHeader-DotNet",
-            "_displayLangs": ["csharp"],
+            "_displayLangs": [
+                "csharp"
+            ],
             "_op_documentIdPathDepotMapping": {
                 "docs/architecture/containerized-lifecycle/": {
                     "folder_relative_path_in_docset": "docs/standard/containerized-lifecycle-architecture/"
@@ -283,8 +313,12 @@
                 "includes/**/**.md": "include"
             },
             "dev_langs": {
-                "docs/fsharp/**/**.md": ["fsharp"],
-                "docs/visual-basic/**/**.md": ["vb"]
+                "docs/fsharp/**/**.md": [
+                    "fsharp"
+                ],
+                "docs/visual-basic/**/**.md": [
+                    "vb"
+                ]
             },
             "ms.devlang": {
                 "docs/csharp/**/*.*": "csharp",
@@ -292,9 +326,9 @@
                 "docs/visual-basic/**/**.md": "vb"
             },
             "author": {
-                "docs/azure/**/*.*": "alexwolf",
+                "docs/azure/**/*.*": "alexwolfmsft",
                 "docs/orleans/**/*.*": "IEvangelist",
-                "docs/architecture/**/**.md": "nishanil",
+                "docs/architecture/**/**.md": "jamesmontemagno",
                 "docs/architecture/grpc-for-wcf-developers/**/**.md": "JamesNK",
                 "docs/architecture/modernize-desktop/**/**.md": "OliaG",
                 "docs/core/**/**.md": "gewarren",
@@ -384,10 +418,10 @@
                 "_csharpstandard/**/*.md": "wiwagn",
                 "_roslyn/docs/compilers/CSharp/*.md": "wiwagn",
                 "_vblang/spec/*.md": "wiwagn",
-                "docs/architecture/**/**.md": "nanil",
+                "docs/architecture/**/**.md": "jamont",
                 "docs/architecture/grpc-for-wcf-developers/**/**.md": "jamesnk",
                 "docs/architecture/modernize-desktop/**/**.md": "oliag",
-                "docs/azure/**/*.*": "casoper",
+                "docs/azure/**/*.*": "alexwolf",
                 "docs/orleans/**/*.*": "dapine",
                 "docs/core/**/**.md": "dotnetcontent",
                 "docs/core/compatibility/**/**.md": "gewarren",
@@ -472,14 +506,14 @@
             "ms.date": {
                 "_csharpstandard/standard/*.md": "01/10/2021",
                 "_csharplang/proposals/csharp-7.0/*.md": "08/13/2018",
-                "_csharplang/proposals/csharp-7.1/*.md": "02/16/2018",
                 "_csharplang/proposals/csharp-7.2/*.md": "01/19/2019",
                 "_csharplang/proposals/csharp-7.3/*.md": "11/25/2018",
                 "_csharplang/proposals/csharp-8.0/*.md": "09/10/2019",
                 "_csharplang/proposals/csharp-9.0/*.md": "07/29/2020",
                 "_csharplang/proposals/csharp-10.0/*.md": "08/07/2021",
                 "_csharplang/proposals/csharp-11.0/*.md": "09/30/2022",
-                "_roslyn/docs/compilers/CSharp/Compiler Breaking Changes - DotNet 7.md": "09/30/2022",
+                "_csharplang/proposals/*.md": "04/03/2023",
+                "_roslyn/docs/compilers/CSharp/Compiler Breaking Changes - DotNet 7.md": "11/08/2022",
                 "_vblang/spec/*.md": "07/21/2017"
             },
             "ms.technology": {
@@ -508,7 +542,6 @@
                 "docs/csharp/programming-guide/strings/**/**.md": "csharp-fundamentals",
                 "docs/csharp/programming-guide/types/**/**.md": "csharp-fundamentals",
                 "docs/csharp/programming-guide/statements-expressions-operators/**/**.md": "csharp-fundamentals",
-                "docs/csharp/programming-guide/interop/**/**.md": "csharp-advanced-concepts",
                 "docs/csharp/programming-guide/exceptions/**/**.md": "csharp-fundamentals",
                 "docs/csharp/programming-guide/namespaces/**/**.md": "csharp-fundamentals",
                 "docs/csharp/programming-guide/arrays/**/**.md": "csharp-fundamentals",
@@ -602,6 +635,7 @@
                 "_csharpstandard/standard/types.md": "Types",
                 "_csharpstandard/standard/variables.md": "Variables",
                 "_csharpstandard/standard/conversions.md": "Conversions",
+                "_csharpstandard/standard/patterns.md": "Patterns and pattern matching",
                 "_csharpstandard/standard/expressions.md": "Expressions",
                 "_csharpstandard/standard/statements.md": "Statements",
                 "_csharpstandard/standard/namespaces.md": "Namespaces",
@@ -619,31 +653,12 @@
                 "_csharpstandard/standard/standard-library.md": "Standard library",
                 "_csharpstandard/standard/documentation-comments.md": "Documentation comments",
                 "_csharpstandard/standard/Bibliography.md": "Bibliography",
-
-                "_csharplang/proposals/csharp-7.0/pattern-matching.md": "Pattern matching",
-                "_csharplang/proposals/csharp-7.0/out-var.md": "Out variable declarations",
-                "_csharplang/proposals/csharp-7.0/binary-literals.md": "Binary literals",
-                "_csharplang/proposals/csharp-7.0/digit-separators.md": "Digit separators",
                 "_csharplang/proposals/csharp-7.0/task-types.md": "Async task types",
-
-                "_csharplang/proposals/csharp-7.1/target-typed-default.md": "Default expressions",
-                "_csharplang/proposals/csharp-7.1/infer-tuple-names.md": "Infer tuple member names",
-                "_csharplang/proposals/csharp-7.1/generics-pattern-match.md": "Pattern matching with generics",
-
                 "_csharplang/proposals/csharp-7.2/readonly-ref.md": "Readonly references",
                 "_csharplang/proposals/csharp-7.2/span-safety.md": "Compile time safety for ref-like types",
-                "_csharplang/proposals/csharp-7.2/non-trailing-named-arguments.md": "Non-trailing named arguments",
-                "_csharplang/proposals/csharp-7.2/private-protected.md": "Private protected",
                 "_csharplang/proposals/csharp-7.2/conditional-ref.md": "Conditional ref",
-                "_csharplang/proposals/csharp-7.2/leading-separator.md": "Leading digit separator",
-
-                "_csharplang/proposals/csharp-7.3/indexing-movable-fixed-fields.md": "Indexing fixed fields without pinning regardless of context",
-                "_csharplang/proposals/csharp-7.3/pattern-based-fixed.md": "Pattern-based fixed statement",
                 "_csharplang/proposals/csharp-7.3/ref-local-reassignment.md": "Ref local reassignment",
                 "_csharplang/proposals/csharp-7.3/stackalloc-array-initializers.md": "Stackalloc array initializers",
-                "_csharplang/proposals/csharp-7.3/expression-variables-in-initializers.md": "Expression variables in initializers",
-                "_csharplang/proposals/csharp-7.3/tuple-equality.md": "Tuple equality (==) and inequality (!=)",
-
                 "_csharplang/proposals/csharp-8.0/nullable-reference-types.md": "Null reference types - proposal",
                 "_csharplang/proposals/csharp-8.0/patterns.md": "Recursive pattern matching",
                 "_csharplang/proposals/csharp-8.0/default-interface-methods.md": "Default interface methods",
@@ -654,7 +669,6 @@
                 "_csharplang/proposals/csharp-8.0/readonly-instance-members.md": "Readonly instance members",
                 "_csharplang/proposals/csharp-8.0/static-local-functions.md": "Static local functions",
                 "_csharplang/proposals/csharp-8.0/nested-stackalloc.md": "Nested stackalloc expressions",
-
                 "_csharplang/proposals/csharp-9.0/covariant-returns.md": "Covariant return types",
                 "_csharplang/proposals/csharp-9.0/extending-partial-methods.md": "Extending partial methods",
                 "_csharplang/proposals/csharp-9.0/extension-getenumerator.md": "Extension GetEnumerator support in foreach",
@@ -673,7 +687,6 @@
                 "_csharplang/proposals/csharp-9.0/target-typed-new.md": "Target-typed new expressions",
                 "_csharplang/proposals/csharp-9.0/top-level-statements.md": "Top-level statements",
                 "_csharplang/proposals/csharp-9.0/unconstrained-type-parameter-annotations.md": "Unconstrained type parameter annotations",
-
                 "_csharplang/proposals/csharp-10.0/record-structs.md": "Record structs",
                 "_csharplang/proposals/csharp-10.0/parameterless-struct-constructors.md": "Parameterless struct constructors",
                 "_csharplang/proposals/csharp-10.0/GlobalUsingDirective.md": "Global using directive",
@@ -687,7 +700,6 @@
                 "_csharplang/proposals/csharp-10.0/enhanced-line-directives.md": "Enhanced #line directives",
                 "_csharplang/proposals/csharp-10.0/improved-definite-assignment.md": "Improved definite assignment analysis",
                 "_csharplang/proposals/csharp-10.0/async-method-builders.md": "AsyncMethodBuilder override",
-
                 "_csharplang/proposals/csharp-11.0/generic-attributes.md": "Generic attributes",
                 "_csharplang/proposals/csharp-11.0/auto-default-structs.md": "Auto-default struct",
                 "_csharplang/proposals/csharp-11.0/checked-user-defined-operators.md": "Checked user defined operators",
@@ -705,8 +717,11 @@
                 "_csharplang/proposals/csharp-11.0/unsigned-right-shift-operator.md": "Unsigned right shift operator",
                 "_csharplang/proposals/csharp-11.0/utf8-string-literals.md": "UTF-8 string literals",
 
-                "_roslyn/docs/compilers/CSharp/Compiler Breaking Changes - DotNet 7.md": "C# compiler breaking changes since C# 10",
+                "_csharplang/proposals/primary-constructors.md": "Primary constructors",
+                "_csharplang/proposals/using-alias-types.md": "Alias any type",
+                "_csharplang/proposals/lambda-method-group-defaults.md": "Optional and parameter array parameters for lambdas and method groups",
 
+                "_roslyn/docs/compilers/CSharp/Compiler Breaking Changes - DotNet 7.md": "C# compiler breaking changes since C# 10",
                 "_vblang/spec/introduction.md": "Introduction",
                 "_vblang/spec/lexical-grammar.md": "Lexical grammar",
                 "_vblang/spec/preprocessing-directives.md": "Preprocessing directives",
@@ -736,6 +751,7 @@
                 "_csharpstandard/standard/types.md": "This chapter defines value types, reference types, generic types and other program entities. Concepts such as assemblies, namespaces, classes, interfaces and structs are defined.",
                 "_csharpstandard/standard/variables.md": "This chapter covers variable categories, default values, definite assignment, and variable references.",
                 "_csharpstandard/standard/conversions.md": "This chapter covers the possible conversions from one type to another in C#. Builtin conversions, user defined conversions, implicit and explicit conversions are defined.",
+                "_csharpstandard/standard/patterns.md": "This chapter covers patterns and patttern matching. A pattern is a syntactic form that can be tested against an expression. Control flow can be achieved by matching against different patterns.",
                 "_csharpstandard/standard/expressions.md": "This chapter covers operators and expressions. Expressions form several groups, including primary expressions, unary operators, arithmetic operators, relational and type testing operators, and logical operators.",
                 "_csharpstandard/standard/statements.md": "This chapter covers statements in C#. Each statement is defined, as are statement blocks, statement reachability, and end points.",
                 "_csharpstandard/standard/namespaces.md": "This chapter defines namespaces, including how to declare them and how to use them.",
@@ -753,31 +769,12 @@
                 "_csharpstandard/standard/standard-library.md": "This appendix lists requirements of the standard library. The C# language relies on these types for some of its behavior.",
                 "_csharpstandard/standard/documentation-comments.md": "This appendix describes XML comments that are used to document your program.",
                 "_csharpstandard/standard/Bibliography.md": "This appendix lists external standards referenced in this specification.",
-
-                "_csharplang/proposals/csharp-7.0/pattern-matching.md": "This feature specification describes the pattern matching featues added in C# 7.0. Note that future releases built on this initial set of features.",
-                "_csharplang/proposals/csharp-7.0/out-var.md": "This feature specification describes syntax enhancements that enable declaring 'out' variables in the expression where they are used.",
-                "_csharplang/proposals/csharp-7.0/binary-literals.md": "This feature specification describes the syntax to declare binary literals for integral constants.",
-                "_csharplang/proposals/csharp-7.0/digit-separators.md": "This feature specification describes the syntax to allow separators between groups of digits in numeric literals.",
                 "_csharplang/proposals/csharp-7.0/task-types.md": "This feature specification describes the syntax to support async return types that match a pattern, rather than restricting them to Task.",
-
-                "_csharplang/proposals/csharp-7.1/target-typed-default.md": "This feature specification describes the syntax to use the default keyword where the type of the expression can be inferred by the compiler.",
-                "_csharplang/proposals/csharp-7.1/infer-tuple-names.md": "This feature specification describes how the compiler interprets and infers the members names in a tuple.",
-                "_csharplang/proposals/csharp-7.1/generics-pattern-match.md": "This feature specification describes syntax enhancements to enable pattern matching with generic types.",
-
                 "_csharplang/proposals/csharp-7.2/readonly-ref.md": "This feature specification describes how to create readonly references to variables. This includes the 'readonly' modifier on variables, and the 'in' modifier on parameters and arguments.",
                 "_csharplang/proposals/csharp-7.2/span-safety.md": "This feature specification describes the rules that govern 'ref struct' declarations and their use.",
-                "_csharplang/proposals/csharp-7.2/non-trailing-named-arguments.md": "This feature specification describes syntax enhancements that enable named arguments followed by positional arguments in a method call.",
-                "_csharplang/proposals/csharp-7.2/private-protected.md": "This feature specification describes the 'private protected' access modifier.",
                 "_csharplang/proposals/csharp-7.2/conditional-ref.md": "This feature specification describes the syntax enhancements for using 'ref' with '?:' expressions",
-                "_csharplang/proposals/csharp-7.2/leading-separator.md": "This feature specification describes syntax enhancements to support a leading digit separator in numeric literals.",
-
-                "_csharplang/proposals/csharp-7.3/indexing-movable-fixed-fields.md": "This feature specification describes syntax enhancement to support indexing fixed fields without pinning the memory, regardless of context.",
-                "_csharplang/proposals/csharp-7.3/pattern-based-fixed.md": "This feature specification describes syntax enhancements to enable more types to be the target of a fixed statement.",
                 "_csharplang/proposals/csharp-7.3/ref-local-reassignment.md": "This feature specification describes syntax enhancements that enable ref local variables to be assigned to refer to different storage after being initialized.",
                 "_csharplang/proposals/csharp-7.3/stackalloc-array-initializers.md": "This feature specification describes the syntax that enables arrays to be declared using the 'stackalloc' keyword.",
-                "_csharplang/proposals/csharp-7.3/expression-variables-in-initializers.md": "This feature specification enables declarations of 'out' variables in more locations.",
-                "_csharplang/proposals/csharp-7.3/tuple-equality.md": "This feature specification describes the rules governing tuple equality (==) and inequality (!=).",
-
                 "_csharplang/proposals/csharp-8.0/nullable-reference-types.md": "This feature specification describes nullable reference types.",
                 "_csharplang/proposals/csharp-8.0/patterns.md": "This feature specification describes recursive pattern matching, where patterns can nest inside other patterns.",
                 "_csharplang/proposals/csharp-8.0/default-interface-methods.md": "This feature specification describe the syntax updates necessary to support default interface methods. This includes declaring bodies in interface declarations, and supporting modifiers on declarations.",
@@ -788,7 +785,6 @@
                 "_csharplang/proposals/csharp-8.0/readonly-instance-members.md": "This feature specification describes the syntax for declaring and using readonly instance members.",
                 "_csharplang/proposals/csharp-8.0/static-local-functions.md": "This feature specification describes static local functions, which are local functions that cannot access variables in the enclosing scope.",
                 "_csharplang/proposals/csharp-8.0/nested-stackalloc.md": "This feature specification describes nested stackalloc expressions, which provides nested arrays of stackalloc storage.",
-
                 "_csharplang/proposals/csharp-9.0/covariant-returns.md": "This feature specification describes covariant return types, where overriding member declarations can return a type derived from the overridden member declaration.",
                 "_csharplang/proposals/csharp-9.0/extending-partial-methods.md": "This feature specification describes extensions to partial methods. These extensions enable source generators to create or call partial methods.",
                 "_csharplang/proposals/csharp-9.0/extension-getenumerator.md": "This feature specification describes the necessary pattern for an extension method to provide the GetEnumerator support in a foreach loop.",
@@ -807,7 +803,6 @@
                 "_csharplang/proposals/csharp-9.0/target-typed-new.md": "This feature specification describes the enhancements to 'new' where the target type can be inferred from the variable declaration.",
                 "_csharplang/proposals/csharp-9.0/top-level-statements.md": "This feature specification describes top-level statements, which are program statements that replace the typical 'Main' method enclosed in a startup class.",
                 "_csharplang/proposals/csharp-9.0/unconstrained-type-parameter-annotations.md": "This feature specification unconstrained type parameter annotations. This enables 'T?' to be used where 'T' is not constrained to be either a value type or a reference type.",
-
                 "_csharplang/proposals/csharp-10.0/record-structs.md": "This feature specification describes record structs, which are structs where the compiler generates methods similar to those for record classes.",
                 "_csharplang/proposals/csharp-10.0/parameterless-struct-constructors.md": "This feature specification parameterless struct constructors, which can now be declared for structs. The rules for when they are called describe behavior in arrays and other variable declarations.",
                 "_csharplang/proposals/csharp-10.0/GlobalUsingDirective.md": "This feature specification describes global using directives, which add a using directive to every file compiled as part of an assembly.",
@@ -821,7 +816,6 @@
                 "_csharplang/proposals/csharp-10.0/enhanced-line-directives.md": "This feature specification describes updates to the #line directive. These enhancements support scenarios like Razor where the Razor engine wants more control over the line number so that it maps to your source rather than the generated file.",
                 "_csharplang/proposals/csharp-10.0/improved-definite-assignment.md": "This feature specification describes updates to the rules for definite assignment analysis. The result is more accurate warnings for when a variable may not be definitely assigned, or may not be null.",
                 "_csharplang/proposals/csharp-10.0/async-method-builders.md": "This feature specification describes new rules to enable types to override the default AsyncMethodBuilder. This will be used by the runtime for performance improvements.",
-
                 "_csharplang/proposals/csharp-11.0/generic-attributes.md": "This feature specification describes generic attributes, where a generic class may derive from 'System.Attribute'.",
                 "_csharplang/proposals/csharp-11.0/auto-default-structs.md": "This feature updates the rules for struct initialization and default values. This feature standardizes the behavior for default struct values and newly initialized structs.",
                 "_csharplang/proposals/csharp-11.0/checked-user-defined-operators.md": "This feature enables checked and unchecked alternatives for some operators.",
@@ -839,8 +833,11 @@
                 "_csharplang/proposals/csharp-11.0/unsigned-right-shift-operator.md": "This feature defines a logical right-shift operator, `>>>`. The logical right shift operator always shifts in 0 values in the left-most bits during a shift.",
                 "_csharplang/proposals/csharp-11.0/utf8-string-literals.md": "This feature enables the `u8` suffix on a string literal. The `u8` suffix instructs the compiler to convert the UTF-8 string literal to a `ReadOnlySpan<byte>`.",
 
-                "_roslyn/docs/compilers/CSharp/Compiler Breaking Changes - DotNet 7.md": "Learn about any breaking changes since the initial release of C# 10",
+                "_csharplang/proposals/primary-constructors.md": "Primary constructors put the parameters of one constructor in scope for the whole class or struct to be used for initialization or directly as object state. The trade-off is that any other constructors must call through the primary constructor.",
+                "_csharplang/proposals/using-alias-types.md": "Using directives can alias any type, not just named types. You can create aliases for tuple types, generics and more.",
+                "_csharplang/proposals/lambda-method-group-defaults.md": "Lambda expressions can now declare default parameters and params arrays parameters.",
 
+                "_roslyn/docs/compilers/CSharp/Compiler Breaking Changes - DotNet 7.md": "Learn about any breaking changes since the initial release of C# 10",
                 "_vblang/spec/introduction.md": "This chapter provides and introduction to the Visual Basic language.",
                 "_vblang/spec/lexical-grammar.md": "This chapter defines the lexical grammar for Visual Basic.",
                 "_vblang/spec/preprocessing-directives.md": "This chapter defines the preprocessing directives allowed in Visual Basic",
@@ -857,14 +854,14 @@
             },
             "titleSuffix": {
                 "_csharpstandard/standard/*.md": "C# language specification",
-                "_csharplang/proposals/csharp-7.0/*.md": "C# 7.0 draft specifications",
-                "_csharplang/proposals/csharp-7.1/*.md": "C# 7.1 draft specifications",
-                "_csharplang/proposals/csharp-7.2/*.md": "C# 7.2 draft specifications",
-                "_csharplang/proposals/csharp-7.3/*.md": "C# 7.3 draft specifications",
-                "_csharplang/proposals/csharp-8.0/*.md": "C# 8.0 draft specifications",
-                "_csharplang/proposals/csharp-9.0/*.md": "C# 9.0 draft specifications",
-                "_csharplang/proposals/csharp-10.0/*.md": "C# 10.0 draft specifications",
-                "_csharplang/proposals/csharp-11.0/*.md": "C# 11.0 draft specifications",
+                "_csharplang/proposals/csharp-7.0/*.md": "C# 7.0 draft feature specifications",
+                "_csharplang/proposals/csharp-7.2/*.md": "C# 7.2 draft feature specifications",
+                "_csharplang/proposals/csharp-7.3/*.md": "C# 7.3 draft feature specifications",
+                "_csharplang/proposals/csharp-8.0/*.md": "C# 8.0 draft feature specifications",
+                "_csharplang/proposals/csharp-9.0/*.md": "C# 9.0 draft feature specifications",
+                "_csharplang/proposals/csharp-10.0/*.md": "C# 10.0 draft feature specifications",
+                "_csharplang/proposals/csharp-11.0/*.md": "C# 11.0 draft feature specifications",
+                "_csharplang/proposals/*.md": "C# preview feature specifications",
                 "docs/framework/**/**.md": ".NET Framework",
                 "docs/framework/data/adonet/**/**.md": "ADO.NET",
                 "docs/framework/wcf/**/**.md": "WCF",
@@ -899,11 +896,21 @@
             "ms.custom": {
                 "docs/framework/**/*.md": "UpdateFrequency5",
                 "docs/visual-basic/**/*.md": "UpdateFrequency5"
+            },
+            "no-loc": {
+                "**/**.md": [
+                    ".NET",
+                    "Orleans"
+                ]
             }
         },
         "dest": "_site",
-        "template": ["docs.html"],
-        "xref": ["_zip/missingapi.yml"],
+        "template": [
+            "docs.html"
+        ],
+        "xref": [
+            "_zip/missingapi.yml"
+        ],
         "lruSize": 0
     }
 }

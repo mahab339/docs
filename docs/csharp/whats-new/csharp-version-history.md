@@ -311,7 +311,7 @@ C# version 3.0 came in late 2007, along with Visual Studio 2008, though the full
 - [Anonymous types](../fundamentals/types/anonymous-types.md)
 - [Query expressions](../linq/query-expression-basics.md)
 - [Lambda expressions](../language-reference/operators/lambda-expressions.md)
-- [Expression trees](../expression-trees.md)
+- [Expression trees](/dotnet/csharp/advanced-topics/expression-trees)
 - [Extension methods](../programming-guide/classes-and-structs/extension-methods.md)
 - [Implicitly typed local variables](../language-reference/statements/declarations.md#implicitly-typed-local-variables)
 - [Partial methods](../language-reference/keywords/partial-method.md)
@@ -375,6 +375,6 @@ The major features of C# 1.0 included:
 - [Delegates](../delegates-overview.md)
 - [Operators and expressions](../language-reference/operators/index.md)
 - [Statements](../programming-guide/statements-expressions-operators/statements.md)
-- [Attributes](../programming-guide/concepts/attributes/index.md)
+- [Attributes](/dotnet/csharp/advanced-topics/reflection-and-attributes)
 
 _Article_ [_originally published on the NDepend blog_](https://blog.ndepend.com/c-versions-look-language-history/)_, courtesy of Erik Dietrich and Patrick Smacchia._
