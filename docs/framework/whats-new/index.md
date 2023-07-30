@@ -677,7 +677,7 @@ Starting with .NET Framework 4.7.1, <xref:System.ValueTuple?displayProperty=name
 
 **Support for read-only references**
 
-.NET Framework 4.7.1 adds the <xref:System.Runtime.CompilerServices.IsReadOnlyAttribute?displayProperty=nameWithType>. This attribute is used by language compilers to mark members that have read-only ref return types or parameters. For more information, see "Compiler -- Support for ReadOnlyReferences" in the [.NET Framework 4.7.1 Runtime and Compiler Features](https://devblogs.microsoft.com/dotnet/net-framework-4-7-1-runtime-and-compiler-features/) blog post. For information on ref return values, see [Ref return values](../../csharp/language-reference/statements/jump-statements.md#ref-returns) and [ref locals](../../csharp/language-reference/statements/declarations.md#ref-locals) and [Ref return values (Visual Basic)](../../visual-basic/programming-guide/language-features/procedures/ref-return-values.md).
+.NET Framework 4.7.1 adds the <xref:System.Runtime.CompilerServices.IsReadOnlyAttribute?displayProperty=nameWithType>. This attribute is used by language compilers to mark members that have read-only ref return types or parameters. For more information, see "Compiler -- Support for ReadOnlyReferences" in the [.NET Framework 4.7.1 Runtime and Compiler Features](https://devblogs.microsoft.com/dotnet/net-framework-4-7-1-runtime-and-compiler-features/) blog post. For information on ref return values, see [Ref return values](../../csharp/language-reference/statements/jump-statements.md#ref-returns) and [ref locals](../../csharp/language-reference/statements/declarations.md#reference-variables) and [Ref return values (Visual Basic)](../../visual-basic/programming-guide/language-features/procedures/ref-return-values.md).
 
 <a name="clr"></a>
 
@@ -1065,18 +1065,18 @@ End Function
 
 **SignedXml support for SHA-2 hashing**
 
-.NET Framework 4.6.2 adds support to  the <xref:System.Security.Cryptography.Xml.SignedXml> class for RSA-SHA256, RSA-SHA384, and RSA-SHA512 PKCS#1 signature methods, and SHA256, SHA384, and SHA512 reference digest algorithms.
+.NET Framework 4.6.2 adds support to the <xref:System.Security.Cryptography.Xml.SignedXml> class for RSA-SHA256, RSA-SHA384, and RSA-SHA512 PKCS#1 signature methods, and SHA256, SHA384, and SHA512 reference digest algorithms.
 
 The URI constants are all exposed on <xref:System.Security.Cryptography.Xml.SignedXml>:
 
 |SignedXml field|Constant|
 |---------------------|--------------|
-|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigSHA256Url>|"http://www.w3.org/2001/04/xmlenc#sha256"|
-|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigRSASHA256Url>|"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"|
-|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigSHA384Url>|"http://www.w3.org/2001/04/xmldsig-more#sha384"|
-|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigRSASHA384Url>|"http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"|
-|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigSHA512Url>|"http://www.w3.org/2001/04/xmlenc#sha512"|
-|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigRSASHA512Url>|"http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"|
+|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigSHA256Url>|`"http://www.w3.org/2001/04/xmlenc#sha256"`|
+|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigRSASHA256Url>|`"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"`|
+|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigSHA384Url>|`"http://www.w3.org/2001/04/xmldsig-more#sha384"`|
+|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigRSASHA384Url>|`"http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"`|
+|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigSHA512Url>|`"http://www.w3.org/2001/04/xmlenc#sha512"`|
+|<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigRSASHA512Url>|`"http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"`|
 
  Any programs that have registered a custom <xref:System.Security.Cryptography.SignatureDescription> handler into <xref:System.Security.Cryptography.CryptoConfig> to add support for these algorithms will continue to function as they did in the past, but since there are now platform defaults, the <xref:System.Security.Cryptography.CryptoConfig> registration is no longer necessary.
 

@@ -11,7 +11,7 @@ ms.date: 05/24/2023
 This article describes how to install .NET on Ubuntu. The Microsoft package repository contains every version of .NET that is currently, or was previously, supported on Ubuntu. Starting with Ubuntu 22.04, some versions of .NET are available in the Ubuntu package feed. For more information about available versions, see the [Supported distributions](#supported-distributions) section.
 
 > [!WARNING]
-> It's recommended that you avoid using both the Microsoft and Ubuntu package repositories for .NET, as this leads to problems when apps try to resolve a specific version of .NET.
+> It's recommended that you choose a single repository to source .NET packages. Don't mix .NET packages from multiple package repositories, as this leads to problems when apps try to resolve a specific version of .NET.
 
 | Method | Pros | Cons |
 |--------|------|------|
@@ -105,7 +105,7 @@ The following table is a list of currently supported .NET releases and the versi
 
 | Ubuntu                              | Supported .NET versions | Available in Ubuntu feed | [Available in Microsoft feed](#register-the-microsoft-package-repository) |
 |-------------------------------------|-------------------------|--------------------------|-----------------------------------|
-| [23.04 (LTS)](linux-ubuntu-2210.md) | 7.0, 6.0                | 7.0, 6.0                 | 7.0, 6.0                          |
+| [23.04](linux-ubuntu-2304.md)       | 7.0, 6.0                | 7.0, 6.0                 | 7.0, 6.0                          |
 | [22.10](linux-ubuntu-2210.md)       | 7.0, 6.0                | 7.0, 6.0                 | 7.0, 6.0, 3.1                     |
 | [22.04 (LTS)](linux-ubuntu-2204.md) | 7.0, 6.0                | 6.0                      | 7.0, 6.0, 3.1                     |
 | [20.04 (LTS)](linux-ubuntu-2004.md) | 7.0, 6.0                | None                     | 7.0. 6.0, 5.0, 3.1, 2.1           |
@@ -170,7 +170,7 @@ If you want to install an unsupported version of .NET, check the [Supported dist
 > [!TIP]
 > If you're not creating .NET apps, install the ASP.NET Core runtime as it includes the .NET runtime and also supports ASP.NET Core apps.
 
-Some enviornment variables affect how .NET is run after it's installed. For more information, see [.NET SDK and CLI environment variables](../tools/dotnet-environment-variables.md#net-sdk-and-cli-environment-variables).
+Some environment variables affect how .NET is run after it's installed. For more information, see [.NET SDK and CLI environment variables](../tools/dotnet-environment-variables.md#net-sdk-and-cli-environment-variables).
 
 ## Uninstall .NET
 

@@ -1,7 +1,7 @@
 ---
 title: dotnet-install scripts
 description: Learn about the dotnet-install scripts to install the .NET SDK and the shared runtime.
-ms.date: 11/08/2021
+ms.date: 07/10/2023
 ---
 # dotnet-install scripts reference
 
@@ -45,8 +45,8 @@ The bash script also reads PowerShell switches, so you can use PowerShell switch
 
 The `dotnet-install` scripts perform a non-admin installation of the .NET SDK, which includes the .NET CLI and the shared runtime. There are two scripts:
 
-* A PowerShell script that works on Windows.
-* A bash script that works on Linux/macOS.
+* A PowerShell script that works on Windows. For installation instructions, see [Install on Windows](../install/windows.md#install-with-powershell-automation).
+* A bash script that works on Linux/macOS. For installation instructions, see [Install on Linux](../install/linux-scripted-manual.md#scripted-install) and [Install on macOS](../install/macos.md#install-with-bash-automation).
 
 > [!NOTE]
 > .NET collects telemetry data. To learn more and how to opt out, see [.NET SDK telemetry](telemetry.md).
@@ -80,6 +80,9 @@ By default, the installation scripts download the SDK and install it. If you wis
 
 By default, the script adds the install location to the $PATH for the current session. Override this default behavior by specifying the `-NoPath|--no-path` argument. The script doesn't set the `DOTNET_ROOT` environment variable.
 
+> [!IMPORTANT]
+> The script doesn't add the install location to the user's `PATH` environment variable, you must manually add it.
+
 Before running the script, install the required [dependencies](../install/windows.md#dependencies).
 
 You can install a specific version using the `-Version|--version` argument. The version must be specified as a three-part version number, such as `2.1.0`. If the version isn't specified, the script installs the `latest` version.
@@ -90,7 +93,7 @@ The install scripts do not update the registry on Windows. They just download th
 
 - **`-Architecture|--architecture <ARCHITECTURE>`**
 
-  Architecture of the .NET binaries to install. Possible values are `<auto>`, `amd64`, `x64`, `x86`, `arm64`, `arm`, and `s390x`. The default value is `<auto>`, which represents the currently running OS architecture.
+  Architecture of the .NET binaries to install. Possible values are `<auto>`, `amd64`, `x64`, `x86`, `arm64`, `arm`, `s390x`, and `ppc64le`. The default value is `<auto>`, which represents the currently running OS architecture.
 
 - **`-AzureFeed|--azure-feed`**
 
@@ -151,13 +154,23 @@ The install scripts do not update the registry on Windows. They just download th
 
 - **`-Quality|--quality <QUALITY>`**
 
-  Downloads the latest build of the specified quality in the channel. The possible values are: `daily`, `signed`, `validated`, `preview`, `GA`. Works only in combination with `channel`. Not applicable for STS and LTS channels and will be ignored if one of those channels is used.
+  Downloads the latest build of the specified quality in the channel. The possible values are: `daily`, `signed`, `validated`, `preview`, and `GA`. Most users should use `daily`, `preview`, or `GA` qualities.
 
-  For an SDK installation, use `channel` in `A.B` or `A.B.Cxx` format.
+  The different quality values signal different stages of the release process of the SDK or Runtime installed.
+
+  * `daily` - these builds are the latest builds of the SDK or Runtime. They are built every day and are not tested. They are not recommended for production use, but can often be used to test specific features or fixes immediately after they are merged into the product. Note that these builds are from the `dotnet/installer` repo, and so if you're looking for fixes from `dotnet/sdk` you must wait for code to flow and be merged from SDK to Installer before it appears in a daily build.
+  * `signed` - these builds are Microsoft-signed, but not validated or publicly released. Signed builds are candidates for validation, preview, and GA release. This quality level is not really intended for public usage.
+  * `validated` - these builds have had a level of internal testing done on them, and may be candidates for a preview or GA release, but have not yet been released under those labels. This quality level is not really intended for public usage.
+  * `preview` - these builds are the monthly public releases of the next version of .NET, and are intended for public usage. They are not recommended for production use, but are intended to allow users to experiment and test the new major version before release.
+  * `GA` - these builds are the final stable releases of the .NET SDK and Runtime, and are intended for public usage as well as production support.
+  
+  The `--quality` option works only in combination with `--channel`, but is not applicable for the `STS` and `LTS` channels and will be ignored if one of those channels is used.
+
+  For an SDK installation, use a `channel` value that is in `A.B` or `A.B.Cxx` format.
   For a runtime installation, use `channel` in `A.B` format.
 
   Don't use both `version` and `quality` parameters. When `quality` is specified, the script determines the proper version on its own.
-  
+
   Available since the 5.0 release.
 
 - **`-Runtime|--runtime <RUNTIME>`**

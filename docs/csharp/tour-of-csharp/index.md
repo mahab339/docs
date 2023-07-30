@@ -40,6 +40,8 @@ The `Hello` class declared by the "Hello, World" program has a single member, th
 
 The line starting with `//` is a *single line comment*. C# single line comments start with  `//` continue to the end of the current line. C# also supports *multi-line comments*. Multi-line comments start with `/*` and end with `*/`. The output of the program is produced by the `WriteLine` method of the `Console` class in the `System` namespace. This class is provided by the standard class libraries, which, by default, are automatically referenced by the compiler.
 
+You use the [.NET SDK](https://dotnet.microsoft.com/download) to build your own "Hello, World" program. Once you install the SDK, you run `dotnet new console` to create a basic "Hello, World" program that you can modify. For more information, see the [Hello, World tutorial](../../core/get-started.md) in the .NET Get started section.
+
 ## Types and variables
 
 A *type* defines the structure and behavior of any data in C#. The declaration of a type may include its members, base type, interfaces it implements, and operations permitted for that type. A *variable* is a label that refers to an instance of a specific type.
@@ -122,7 +124,7 @@ There are several kinds of *variables* in C#, including fields, array elements, 
 
 The key organizational concepts in C# are [***programs***](../fundamentals/program-structure/index.md), [***namespaces***](../fundamentals/types/namespaces.md), [***types***](../fundamentals/types/index.md), [***members***](../programming-guide/classes-and-structs/members.md), and [***assemblies***](../../standard/assembly/index.md). Programs declare types, which contain members and can be organized into namespaces. Classes, structs, and interfaces are examples of types. Fields, methods, properties, and events are examples of members. When C# programs are compiled, they're physically packaged into assemblies. Assemblies typically have the file extension `.exe` or `.dll`, depending on whether they implement ***applications*** or ***libraries***, respectively.
 
-As a small example, consider an assembly that contains the following code:
+As a small example, consider the below C# code:
 
 :::code language="csharp" source="./snippets/shared/AcmeStack.cs":::
 

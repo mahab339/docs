@@ -119,7 +119,7 @@ Beginning with C# 11, you can combine *raw string literals* with string interpol
 
 :::code language="csharp" source="./snippets/StringInterpolation.cs" id="InterpolationExample":::
 
-### Verbatim String Interpolation
+### Verbatim string interpolation
 
 C# also allows verbatim string interpolation, for example across multiple lines, using the `$@` or `@$` syntax.
 
@@ -163,7 +163,7 @@ By contrast, a null string doesn't refer to an instance of a <xref:System.String
 
 :::code language="csharp" source="./snippets/StringCharacters.cs" id="BuildString":::
 
-## Using stringBuilder for fast string creation
+## Using StringBuilder for fast string creation
 
 String operations in .NET are highly optimized and in most cases don't significantly impact performance. However, in some scenarios such as tight loops that are executing many hundreds or thousands of times, string operations can affect performance. The <xref:System.Text.StringBuilder> class creates a string buffer that offers better performance if your program performs many string manipulations. The <xref:System.Text.StringBuilder> string also enables you to reassign individual characters, something the built-in string data type doesn't support. This code, for example, changes the content of a string without creating a new string:
 
@@ -175,7 +175,7 @@ In this example, a <xref:System.Text.StringBuilder> object is used to create a s
 
 ## Strings, extension methods and LINQ
 
-Because the <xref:System.String> type implements <xref:System.Collections.Generic.IEnumerable%601>, you can use the extension methods defined in the <xref:System.Linq.Enumerable> class on strings. To avoid visual clutter, these methods are excluded from IntelliSense for the <xref:System.String> type, but they're available nevertheless. You can also use LINQ query expressions on strings. For more information, see [LINQ and Strings](../concepts/linq/linq-and-strings.md).
+Because the <xref:System.String> type implements <xref:System.Collections.Generic.IEnumerable%601>, you can use the extension methods defined in the <xref:System.Linq.Enumerable> class on strings. To avoid visual clutter, these methods are excluded from IntelliSense for the <xref:System.String> type, but they're available nevertheless. You can also use LINQ query expressions on strings. For more information, see [LINQ and Strings](/dotnet/csharp/linq).
 
 ## Related articles
 
@@ -191,4 +191,4 @@ Because the <xref:System.String> type implements <xref:System.Collections.Generi
 - [Parsing Date and Time Strings in .NET](../../../standard/base-types/parsing-datetime.md): Shows how to convert a string such as "01/24/2008" to a <xref:System.DateTime?displayProperty=nameWithType> object.
 - [Comparing Strings](../../../standard/base-types/comparing.md): Includes information about how to compare strings and provides examples in C# and Visual Basic.
 - [Using the StringBuilder Class](../../../standard/base-types/stringbuilder.md): Describes how to create and modify dynamic string objects by using the <xref:System.Text.StringBuilder> class.
-- [LINQ and Strings](../concepts/linq/linq-and-strings.md): Provides information about how to perform various string operations by using LINQ queries.
+- [LINQ and Strings](/dotnet/csharp/linq): Provides information about how to perform various string operations by using LINQ queries.

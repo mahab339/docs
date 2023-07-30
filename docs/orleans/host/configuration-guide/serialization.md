@@ -1,7 +1,7 @@
 ---
 title: Serialization in Orleans
 description: Learn about serialization and custom serializers in .NET Orleans.
-ms.date: 4/19/2023
+ms.date: 06/20/2023
 uid: orleans-serialization
 zone_pivot_groups: orleans-version
 ---
@@ -38,7 +38,7 @@ High-fidelity representation of types is fairly uncommon for serializers, so som
 
 1. **Maintaining object identity**: If the same object is passed multiple types in the arguments of a grain call or is indirectly pointed more than once from the arguments, Orleans will serialize it only once. On the receiver side, Orleans will restore all references correctly so that two pointers to the same object still point to the same object after deserialization as well. Object identity is important to preserve in scenarios like the following. Imagine grain A is sending a dictionary with 100 entries to grain B, and 10 of the keys in the dictionary point to the same object, `obj`, on A's side. Without preserving object identity, B would receive a dictionary of 100 entries with those 10 keys pointing to 10 different clones of `obj`. With object identity-preserved, the dictionary on B's side looks exactly like on A's side with those 10 keys pointing to a single object `obj`. Note that because the default string hash code implementations in .NET are randomized per-process, ordering of values in dictionaries and hash sets (for example) may not be preserved.
 
-To support version tolerance, the serializer requires developers to be explicit about which types and members are serialized. We have tried to make this as pain-free as possible. You must mark all serializable types with <xref:Orleans.CodeGeneration.GenerateSerializerAttribute?displayProperty=nameWithType> to instruct Orleans to generate serializer code for your type. Once you have done this, you can use the included code-fix to add the required <xref:Orleans.IdAttribute?displayProperty=nameWithType> to the serializable members on your types, as demonstrated here:
+To support version tolerance, the serializer requires developers to be explicit about which types and members are serialized. We have tried to make this as pain-free as possible. You must mark all serializable types with <xref:Orleans.GenerateSerializerAttribute?displayProperty=nameWithType> to instruct Orleans to generate serializer code for your type. Once you have done this, you can use the included code-fix to add the required <xref:Orleans.IdAttribute?displayProperty=nameWithType> to the serializable members on your types, as demonstrated here:
 
 :::image type="content" source="media/generate-serializer-code-fix.gif" alt-text="An animated image of the available code fix being suggested and applied on the GenerateSerializerAttribute when the containing type doesn't contain IdAttribute's on its members." lightbox="media/generate-serializer-code-fix.gif":::
 
@@ -72,6 +72,28 @@ public class Book : Publication
 ```
 
 In the preceding code, note that both `Publication` and `Book` have members with `[Id(0)]` even though `Book` derives from `Publication`. This is the recommended practice in Orleans because members identifiers are scoped to the inheritance level, not the type as a whole. Members can be added and removed from `Publication` and `Book` independently, but a new base class cannot be inserted into the hierarchy once the application has been deployed without special consideration.
+
+Orleans also supports serializing types with `internal`, `private`, and `readonly` members, such as in this example type:
+
+```csharp
+[GenerateSerializer]
+public struct MyCustomStruct
+{
+    public MyCustom(int intProperty, int intField)
+    {
+        IntProperty = intProperty;
+        _intField = intField;
+    }
+
+    [Id(0)]
+    public int IntProperty { get; }
+
+    [Id(1)] private readonly int _intField;
+    public int GetIntField() => _intField;
+
+    public override string ToString() => $"{nameof(_intField)}: {_intField}, {nameof(IntProperty)}: {IntProperty}";
+}
+```
 
 By default, Orleans will serialize your type by encoding its full name. You can override this by adding an <xref:Orleans.AliasAttribute?displayProperty=nameWithType>. Doing so will result in your type being serialized using a name that is resilient to renaming the underlying class or moving it between assemblies. Type aliases are globally scoped, and you cannot have two aliases with the same value in an application. For generic types, the alias value must include the number of generic parameters preceded by a backtick, for example, `MyGenericType<T, U>` could have the alias <code>[Alias("mytype\`2")]</code>.
 

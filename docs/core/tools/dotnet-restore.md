@@ -1,7 +1,7 @@
 ---
 title: dotnet restore command
 description: Learn how to restore dependencies and project-specific tools with the dotnet restore command.
-ms.date: 05/16/2023
+ms.date: 07/19/2023
 ---
 # dotnet restore
 
@@ -14,12 +14,14 @@ ms.date: 05/16/2023
 ## Synopsis
 
 ```dotnetcli
-dotnet restore [<ROOT>] [--configfile <FILE>] [--disable-parallel]
+dotnet restore [<ROOT>] [--configfile <FILE>] [--disable-build-servers]
+    [--disable-parallel]
     [-f|--force] [--force-evaluate] [--ignore-failed-sources]
     [--interactive] [--lock-file-path <LOCK_FILE_PATH>] [--locked-mode]
     [--no-cache] [--no-dependencies] [--packages <PACKAGES_DIRECTORY>]
     [-r|--runtime <RUNTIME_IDENTIFIER>] [-s|--source <SOURCE>]
-    [--use-lock-file] [-v|--verbosity <LEVEL>]
+    [--use-current-runtime, --ucr [true|false]] [--use-lock-file]
+    [-v|--verbosity <LEVEL>]
 
 dotnet restore -h|--help
 ```
@@ -92,6 +94,8 @@ There are three specific settings that `dotnet restore` ignores:
 
 [!INCLUDE [configfile](../../../includes/cli-configfile.md)]
 
+[!INCLUDE [disable-build-servers](../../../includes/cli-disable-build-servers.md)]
+
 - **`--disable-parallel`**
 
   Disables restoring multiple projects in parallel.
@@ -139,6 +143,10 @@ There are three specific settings that `dotnet restore` ignores:
 - **`-s|--source <SOURCE>`**
 
   Specifies the URI of the NuGet package source to use during the restore operation. This setting overrides all of the sources specified in the *nuget.config* files. Multiple sources can be provided by specifying this option multiple times.
+
+- **`--use-current-runtime, --ucr [true|false]`**
+
+  Sets the `RuntimeIdentifier` to a platform portable `RuntimeIdentifier` based on the one of your machine. This happens implicitly with properties that require a `RuntimeIdentifier`, such as `SelfContained`, `PublishAot`, `PublishSelfContained`, `PublishSingleFile`, and `PublishReadyToRun`. If the property is set to false, that implicit resolution will no longer occur.
 
 - **`--use-lock-file`**
 
